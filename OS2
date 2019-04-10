@@ -1,0 +1,23 @@
+l1=[["p1",10,3],["p2",1,1],["p3",2,4],["p4",1,5],["p5",5,2]]
+l4=[]
+
+m=0
+l2=[]
+for i in range(len(l1)):
+    l3=[]
+    j=min(l1,key=lambda x:x[2])
+    m=m+j[1]
+    l3.append(j[0])
+    l3.append(m)
+    l2.append(l3)
+    l4.append(j)
+    l1.remove(j)
+print(l2)
+l2.sort()
+l4.sort()
+
+# turn around time will be same as that of completion time as Arrival time==0
+w=0
+for i in range(len(l4)):
+    w=w+l2[i][1]-l4[i][1]#as waiting time = TAT-BT
+print("average waiting time= ",(w/len(l4)),"milliseconds")
