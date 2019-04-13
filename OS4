@@ -1,0 +1,15 @@
+print("Enter instances for Process P0, A B C")
+p0=list(map(int,input().split(" ")))
+print("Enter instances for Process P1, A B C")
+p1=list(map(int,input().split(" ")))
+print("Enter instances for Process P2, A B C")
+p2=list(map(int,input().split(" ")))
+p00=[8,4,3]
+p11=[6,2,0]
+p22=[3,3,3]
+avail=[3,2,2]
+print("Enter the no. of requests want to add")
+t=int(input())
+for i in range(t):
+    print("Enter the number of process that request for extra resource")
+    g=int(input())
