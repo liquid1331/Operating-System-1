@@ -1,0 +1,41 @@
+print("Enter instances for Process P0, A B C")
+p0=list(map(int,input().split(" ")))
+print("Enter instances for Process P1, A B C")
+p1=list(map(int,input().split(" ")))
+print("Enter instances for Process P2, A B C")
+p2=list(map(int,input().split(" ")))
+p3=[]
+p3.append(p0)
+p3.append(p1)
+p3.append(p2)
+avail=[3,2,2]
+print("Enter the no. of requests want to add")
+t=int(input())
+for i in range(t):
+    p4=[[8,4,3],[6,2,0],[3,3,3]]
+    print("Enter the number of process that request for extra resource")
+    g=int(input())
+    print("Enter the extra input want to enter of A,B,C resource")
+    l=list(map(int,input().split()))
+    o=[]
+    for i in range(3):
+        o.append(p4[g][i]+l[i])
+    p4[g]=o
+    print(p4)
+    count=0
+    while (count<2):
+        for i in range(3):
+            h1=p3[i][0]+avail[0]
+            h2=p3[i][1]+avail[1]
+            h3=p3[i][2]+avail[2]
+            if h1>=p4[i][0] and h2>=p4[i][1] and h3>=p4[i][2]:
+                avail=[h1,h2,h3]
+                p4[i]=[0,0,0]
+        count=count+1
+        if p4==[[0,0,0],[0,0,0],[0,0,0]]:
+            print("System is in safe State")
+            break
+        if (p4[0]==[0,0,0] or p4[1]==[0,0,0] or p4[2]==[0,0,0]) and (p4!=[[0,0,0],[0,0,0],[0,0,0]])and (count!=1):
+            print()
+        else:
+            print("System is in deadlock")
