@@ -1,0 +1,36 @@
+l1=[]
+print("Enter  burst time and priority number for process p1")
+l1.append(list(map(int,input().split())))
+l1[0].insert(0,"p1")
+print("Enter  burst time and priority number for process p2")
+l1.append(list(map(int,input().split())))
+l1[1].insert(0,"p2")
+print("Enter  burst time and priority number for process p3")
+l1.append(list(map(int,input().split())))
+l1[2].insert(0,"p3")
+print("Enter  burst time and priority number for process p4")
+l1.append(list(map(int,input().split())))
+l1[3].insert(0,"p4")
+print("Enter  burst time and priority number for process p5")
+l1.append(list(map(int,input().split())))
+l1[4].insert(0,"p5")
+l4=[]
+m=0
+l2=[]
+for i in range(len(l1)):
+    l3=[]
+    j=min(l1,key=lambda x:x[2])
+    m=m+j[1]
+    l3.append(j[0])
+    l3.append(m)
+    l2.append(l3)
+    l4.append(j)
+    l1.remove(j)
+print(l2)
+l2.sort()
+l4.sort()
+# turn around time will be same as that of completion time as Arrival time==0
+w=0
+for i in range(len(l4)):
+    w=w+l2[i][1]-l4[i][1]#as waiting time = TAT-BT
+print("average waiting time= ",(w/len(l4)),"milliseconds")
